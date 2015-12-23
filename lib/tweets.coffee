@@ -6,7 +6,7 @@ client = new Twitter
   access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 
-tweets_search = (query = '#RiodosSinos', callback) ->
+tweets_search = (query, callback) ->
   client.get 'search/tweets', q: query, (err, tweets, response) ->
     callback(err, tweets)
 

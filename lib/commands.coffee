@@ -9,13 +9,14 @@ argv = minimist process.argv.slice(2),
 switch
   # search
   when argv.search
-    search = if argv.search is true then null else argv.search
-    sinos.search search, (err, tweets) ->
+    query = if argv.search is true then sinos.DEFAULT_QUERY else argv.search
+    sinos.search query, (err, tweets) ->
       if err?
         console.error err
         process.exit 1
 
-      console.log tweets
+      for tweet in tweets.statuses
+        console.log '%s', tweet.text
 
   # stream
   when argv.stream
