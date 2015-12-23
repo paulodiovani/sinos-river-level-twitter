@@ -1,10 +1,10 @@
 require('coffee-script/register');
 require('dotenv').load({silent: true});
 
-var tweets = require('./lib/tweets');
+var pipeline = require('./lib/pipeline');
 
 module.exports = {
-  search       : tweets.search,
-  stream       : tweets.stream,
+  search       : pipeline.search,
+  stream       : {},
   DEFAULT_QUERY: process.env.DEFAULT_QUERY
 };
