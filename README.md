@@ -26,7 +26,7 @@ OPTIONS:
 ```console
 $ TWITTER_CONSUMER_KEY=[your twitter app consumer key] \
 > TWITTER_CONSUMER_SECRET=[your twitter app consumer secret] \
-> sinos-river-scraper-twitter -q
+> sinos-river-scraper-twitter -q "#RiodosSinos #NovoHamburgo from:ComusaNH"
 
 Bom dia! Nível do #RiodosSinos em #NovoHamburgo às 7h de hoje: 2,98m @PMNH
 Bom dia! Nível do #RiodosSinos em #NovoHamburgo às 7h de hoje: 3,02m @PMNH

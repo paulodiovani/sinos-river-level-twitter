@@ -6,5 +6,5 @@ var tweets = require('./lib/tweets');
 module.exports = {
   search       : tweets.search,
   stream       : tweets.stream,
-  DEFAULT_QUERY: '#RiodosSinos #NovoHamburgo from:ComusaNH'
+  DEFAULT_QUERY: process.env.DEFAULT_QUERY
 };
