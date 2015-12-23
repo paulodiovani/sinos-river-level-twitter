@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Read and parse sinos river level from twitter streams",
   "main": "index.js",
+  "bin": "bin/cli.js",
   "scripts": {
+    "start": "bin/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -21,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/paulodiovani/sinos-river-scraper-twitter/issues"
   },
-  "homepage": "https://github.com/paulodiovani/sinos-river-scraper-twitter#readme"
+  "homepage": "https://github.com/paulodiovani/sinos-river-scraper-twitter#readme",
+  "dependencies": {
+    "coffee-script": "^1.10.0"
+  }
 }
