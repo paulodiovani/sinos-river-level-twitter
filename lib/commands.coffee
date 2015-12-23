@@ -13,7 +13,10 @@ switch
       console.error err
 
     sinos.search.on 'data', (data) ->
-      console.log '%s', data.tweet.text
+      console.log 'Measure in %s, at %sh: %sm',
+        data.tweet.created_at,
+        data.measure.time,
+        data.measure.meters
 
     query = if argv.search is true then sinos.DEFAULT_QUERY else argv.search
     sinos.search.write query
