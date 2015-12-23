@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/paulodiovani/sinos-river-scraper-twitter#readme",
   "dependencies": {
-    "coffee-script": "^1.10.0"
+    "coffee-script": "^1.10.0",
+    "dotenv": "^1.2.0",
+    "twitter": "^1.2.5"
   }
 }
