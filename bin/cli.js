@@ -1,2 +1,3 @@
 #!/usr/bin/env node
-var sinos = require('../index.js');
+require('coffee-script/register');
+require('../lib/commands');
