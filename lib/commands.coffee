@@ -9,14 +9,17 @@ argv = minimist process.argv.slice(2),
 switch
   # search
   when argv.search
-    query = if argv.search is true then sinos.DEFAULT_QUERY else argv.search
-    sinos.search query, (err, tweets) ->
-      if err?
-        console.error err
-        process.exit 1
+    sinos.search.on 'error', (err) ->
+      console.error err
 
-      for tweet in tweets.statuses
-        console.log '%s', tweet.text
+    sinos.search.on 'data', (data) ->
+      console.log 'Measure in %s, at %sh: %sm',
+        data.tweet.created_at,
+        data.measure.time,
+        data.measure.meters
+
+    query = if argv.search is true then sinos.DEFAULT_QUERY else argv.search
+    sinos.search.write query
 
   # stream
   when argv.stream
