@@ -5,7 +5,9 @@
   "main": "index.js",
   "bin": "bin/cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/cli.js",
+    "test": "mocha test/bootstrap.test.coffee test/**/*_spec.coffee",
+    "test-debug": "mocha debug test/bootstrap.test.coffee test/**/*_spec.coffee"
   },
   "keywords": [
     "sinos",
@@ -28,5 +30,9 @@
     "minimist": "^1.2.0",
     "through": "^2.3.8",
     "twitter": "^1.2.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
   }
 }
