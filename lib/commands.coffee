@@ -2,7 +2,7 @@ argv = require('minimist') process.argv.slice(2),
   alias:
     search: ['s', 'q', 'query']
     key:    ['twitter-key', 'twitter-consumer-key']
-    secret: ['twitter-secret', 'twitter-secconsumer-ret']
+    secret: ['twitter-secret', 'twitter-consumer-secret']
     help:   ['h']
 
 sinos = require('../index')
