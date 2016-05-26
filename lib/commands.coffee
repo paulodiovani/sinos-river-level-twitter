@@ -46,8 +46,7 @@ switch
     check_params()
     {key, secret, query} = argv
     sinos.search {query, key, secret}, (tweets) ->
-      tweets.on 'error', (err) ->
-        console.error err
+      tweets.on 'error', console.error
 
       tweets.on 'data', (data) ->
         console.log 'Measure in %s, at %sh: %sm',
