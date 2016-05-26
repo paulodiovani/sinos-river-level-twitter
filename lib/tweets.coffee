@@ -1,29 +1,33 @@
+Readable = require('stream').Readable
 Twitter = require('twitter')
-through = require('through')
 
 ###
-Create/get a new twitter client
+Readable stream to search tweets
 ###
-client = (options) ->
-  new Twitter
-    consumer_key: options.key
-    consumer_secret: options.secret
-    access_token_key: ''
-    access_token_secret: ''
+class TweetsSearch extends Readable
+  constructor: (@options) ->
+    super(objectMode: true)
+    @_setup()
+    @_search()
 
-###
-Stream to search tweets.
-###
-tweets_search = through (options) ->
-  # search twitter and write to stream
-  client(options).get 'search/tweets', {q: options.query}, (err, tweets, response) =>
-    return @emit 'error', err if err?
-    for tweet in tweets.statuses
-      @emit 'data', tweet
-    @emit 'end'
+  _setup: ->
+    @client = new Twitter
+      consumer_key: @options.key
+      consumer_secret: @options.secret
+      access_token_key: ''
+      access_token_secret: ''
 
-tweets_stream = through ->
+  _search: ->
+    query = @options.query
+    @client.get 'search/tweets',
+      q: query
+      result_type: 'recent'
+    , (err, tweets, response) =>
+      @emit err if err?
+      for tweet in tweets.statuses
+        @push tweet
+      @push null
 
-module.exports =
-  search: tweets_search
-  stream: tweets_stream
+  _read: ->
+
+exports.TweetsSearch = TweetsSearch

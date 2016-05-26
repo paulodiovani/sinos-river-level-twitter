@@ -15,7 +15,7 @@ describe 'sinos-river-level-twitter', ->
 
     it 'calls twitter search', ->
       sinos.search {query: 'foo-bar'}, ->
-      sinon.assert.calledWith(@stub, 'search/tweets', {q: 'foo-bar'})
+      sinon.assert.calledWith(@stub, 'search/tweets', {q: 'foo-bar', result_type: 'recent'})
 
     it 'pass a stream to callback', (done) ->
       sinos.search {query: 'foo-bar'}, (stream) ->
