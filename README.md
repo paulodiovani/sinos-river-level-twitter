@@ -10,23 +10,30 @@ npm install -g https://github.com/paulodiovani/sinos-river-scraper-twitter
 
 ## Usage
 
+Note: Twitter key and secret ad mandatory.
+
 ```console
 usage: sinos-river-scraper-twitter [OPTIONS]
 
 OPTIONS:
   -q, --query,
   -s, --search   Search old tweets
-  -w, --wait,
-  -l, --listen,
-  --stream       Wait for new tweets stream
+
+  --twitter-key
+  --key          Twitter consumer key
+
+  --twitter-secret
+  --secret       Twitter consumer secret
+
+  --help, -h     This help
 ```
 
 ### Example
 
 ```console
-$ TWITTER_CONSUMER_KEY=[your twitter app consumer key] \
-> TWITTER_CONSUMER_SECRET=[your twitter app consumer secret] \
-> sinos-river-scraper-twitter -q "#RiodosSinos #NovoHamburgo from:ComusaNH"
+$ sinos-river-scraper-twitter -q "#RiodosSinos #NovoHamburgo from:ComusaNH" \
+  --key bc254ea08faf45c216fada14d64edf71 \
+  --secret 99cbd9758755f8e9e55aa2be5acb75da
 
 Measure in Wed Dec 23 10:28:46 +0000 2015, at 7h: 2,98m
 Measure in Tue Dec 22 09:51:40 +0000 2015, at 7h: 3,02m

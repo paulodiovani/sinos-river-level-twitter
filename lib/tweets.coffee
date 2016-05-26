@@ -1,18 +1,23 @@
 Twitter = require('twitter')
 through = require('through')
+config  = require('./config')
 
-client = new Twitter
-  consumer_key: process.env.TWITTER_CONSUMER_KEY
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+###
+Create/get a new twitter client
+###
+client = ->
+  new Twitter
+    consumer_key: config.TWITTER_CONSUMER_KEY
+    consumer_secret: config.TWITTER_CONSUMER_SECRET
+    access_token_key: config.TWITTER_ACCESS_TOKEN_KEY
+    access_token_secret: config.TWITTER_ACCESS_TOKEN_SECRET
 
 ###
 Stream to search tweets.
 ###
 tweets_search = through (query) ->
   # search twitter and write to stream
-  client.get 'search/tweets', {q: query}, (err, tweets, response) =>
+  client().get 'search/tweets', {q: query}, (err, tweets, response) =>
     return @emit 'error', err if err?
     for tweet in tweets.statuses
       @emit 'data', tweet

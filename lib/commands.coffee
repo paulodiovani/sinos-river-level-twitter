@@ -1,38 +1,60 @@
-minimist = require('minimist')
-sinos    = require('../index.js')
-
-argv = minimist process.argv.slice(2),
+argv = require('minimist') process.argv.slice(2),
   alias:
     search: ['s', 'q', 'query']
-    stream: ['w', 'wait', 'l', 'listen']
+    key:    ['twitter-key', 'twitter-consumer-key']
+    secret: ['twitter-secret', 'twitter-secconsumer-ret']
+    help:   ['h']
+
+sinos = require('../index')
+
+###
+Prints help information
+###
+print_help = ->
+  console.log """
+  usage: sinos-river-scraper-twitter [OPTIONS]
+
+  OPTIONS:
+    -q, --query,
+    -s, --search   Search old tweets
+
+    --twitter-key
+    --key          Twitter consumer key
+
+    --twitter-secret
+    --secret       Twitter consumer secret
+
+    --help, -h     This help
+  """
+  process.exit 0
+
+###
+Check for required params
+###
+check_params = ->
+  unless argv.key? and argv.secret?
+    console.warn "Twitter consumer key and secret must be provided.\n"
+    print_help()
 
 switch
+  # help
+  when argv.help?
+    print_help()
+
   # search
-  when argv.search
-    sinos.search.on 'error', (err) ->
-      console.error err
+  when argv.search?
+    check_params()
+    {key, secret, query} = argv
+    sinos.search {query, key, secret}, (tweets) ->
+      tweets.on 'error', (err) ->
+        console.error err
 
-    sinos.search.on 'data', (data) ->
-      console.log 'Measure in %s, at %sh: %sm',
-        data.tweet.created_at,
-        data.measure.time,
-        data.measure.meters
-
-    query = if argv.search is true then sinos.DEFAULT_QUERY else argv.search
-    sinos.search.write query
-
-  # stream
-  when argv.stream
+      tweets.on 'data', (data) ->
+        console.log 'Measure in %s, at %sh: %sm',
+          data.tweet.created_at,
+          data.measure.time,
+          data.measure.meters
 
   # print help
   else
-    console.log """
-    usage: sinos-river-scraper-twitter [OPTIONS]
-
-    OPTIONS:
-      -q, --query,
-      -s, --search   Search old tweets
-      -w, --wait,
-      -l, --listen,
-      --stream       Wait for new tweets stream
-    """
+    print_help()
