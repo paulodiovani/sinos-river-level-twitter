@@ -38,7 +38,5 @@ Stream to parse tweets data
 tr = through (data) ->
   if parsed = parse_tweet(data)
     @emit 'data', parsed
-, ->
-  @emit 'end'
 
 module.exports = tr
