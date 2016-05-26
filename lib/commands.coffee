@@ -47,7 +47,6 @@ switch
     {key, secret, query} = argv
     sinos.search {query, key, secret}, (tweets) ->
       tweets.on 'error', console.error
-
       tweets.on 'data', (data) ->
         console.log 'Measure in %s, at %sh: %sm',
           data.tweet.created_at,

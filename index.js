@@ -1,11 +1,11 @@
 require('coffee-script/register');
 
-var pipeline = require('./lib/pipeline');
-var config   = require('./lib/config');
+var TweetsSearch = require('./lib/tweets').TweetsSearch;
+var Parser       = require('./lib/parser');
+
+var DEFAULT_QUERY = '#RiodosSinos #NovoHamburgo from:ComusaNH';
 
 exports.search = function(options, cb) {
-  config.set(options);
-  var query = (options.query === true) ? config.DEFAULT_QUERY : options.query;
-  pipeline.search.write(query);
-  cb(pipeline.search);
+  if (options.query === true) options.query = DEFAULT_QUERY;
+  cb(new TweetsSearch(options).pipe(new Parser()));
 };
