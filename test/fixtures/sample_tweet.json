@@ -1,0 +1,119 @@
+{
+  "created_at": "Wed May 25 11:18:04 +0000 2016",
+  "id": 735429724399390700,
+  "id_str": "735429724399390720",
+  "text": "Bom dia! Nível do #RiodosSinos em #NovoHamburgo às 6h de hoje: 4,77m @PMNH",
+  "truncated": false,
+  "entities": {
+    "hashtags": [
+      {
+        "text": "RiodosSinos",
+        "indices": [
+          18,
+          30
+        ]
+      },
+      {
+        "text": "NovoHamburgo",
+        "indices": [
+          34,
+          47
+        ]
+      }
+    ],
+    "symbols": [],
+    "user_mentions": [
+      {
+        "screen_name": "PMNH",
+        "name": "Pref. Novo Hamburgo",
+        "id": 29367487,
+        "id_str": "29367487",
+        "indices": [
+          69,
+          74
+        ]
+      }
+    ],
+    "urls": []
+  },
+  "metadata": {
+    "iso_language_code": "pt",
+    "result_type": "recent"
+  },
+  "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "in_reply_to_status_id": null,
+  "in_reply_to_status_id_str": null,
+  "in_reply_to_user_id": null,
+  "in_reply_to_user_id_str": null,
+  "in_reply_to_screen_name": null,
+  "user": {
+    "id": 1571147310,
+    "id_str": "1571147310",
+    "name": "Comusa",
+    "screen_name": "ComusaNH",
+    "location": "Novo Hamburgo/RS",
+    "description": "Perfil da Assessoria de Comunicação Social da Comusa. Atendimento deve ser solicitado pelo 0800 6000 115 ou pelo e-mail atendimento@comusa.rs.gov.br.",
+    "url": "http://t.co/0joMOGGjBl",
+    "entities": {
+      "url": {
+        "urls": [
+          {
+            "url": "http://t.co/0joMOGGjBl",
+            "expanded_url": "http://www.comusa.rs.gov.br",
+            "display_url": "comusa.rs.gov.br",
+            "indices": [
+              0,
+              22
+            ]
+          }
+        ]
+      },
+      "description": {
+        "urls": []
+      }
+    },
+    "protected": false,
+    "followers_count": 876,
+    "friends_count": 134,
+    "listed_count": 5,
+    "created_at": "Fri Jul 05 19:14:15 +0000 2013",
+    "favourites_count": 98,
+    "utc_offset": null,
+    "time_zone": null,
+    "geo_enabled": true,
+    "verified": false,
+    "statuses_count": 1841,
+    "lang": "pt",
+    "contributors_enabled": false,
+    "is_translator": false,
+    "is_translation_enabled": false,
+    "profile_background_color": "9AE4E8",
+    "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/378800000025091068/7f063edd6de1734c1bb1acb283a51509.jpeg",
+    "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/378800000025091068/7f063edd6de1734c1bb1acb283a51509.jpeg",
+    "profile_background_tile": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/684030205086818304/CzAJfSWJ_normal.jpg",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/684030205086818304/CzAJfSWJ_normal.jpg",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/1571147310/1449168566",
+    "profile_link_color": "0084B4",
+    "profile_sidebar_border_color": "000000",
+    "profile_sidebar_fill_color": "DDFFCC",
+    "profile_text_color": "333333",
+    "profile_use_background_image": true,
+    "has_extended_profile": false,
+    "default_profile": false,
+    "default_profile_image": false,
+    "following": null,
+    "follow_request_sent": null,
+    "notifications": null
+  },
+  "geo": null,
+  "coordinates": null,
+  "place": null,
+  "contributors": null,
+  "is_quote_status": false,
+  "retweet_count": 2,
+  "favorite_count": 1,
+  "favorited": false,
+  "retweeted": false,
+  "lang": "pt"
+}
