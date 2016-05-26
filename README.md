@@ -1,11 +1,11 @@
-# sinos-river-scraper-twitter
+# sinos-river-level-twitter
 
 Read and parse sinos river level from twitter streams.
 
 ## Install
 
 ```console
-npm install -g https://github.com/paulodiovani/sinos-river-scraper-twitter
+npm install -g sinos-river-level-twitter
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install -g https://github.com/paulodiovani/sinos-river-scraper-twitter
 Note: Twitter key and secret ad mandatory.
 
 ```console
-usage: sinos-river-scraper-twitter [OPTIONS]
+usage: sinos-river-level-twitter [OPTIONS]
 
 OPTIONS:
   -q, --query,
@@ -31,7 +31,7 @@ OPTIONS:
 ### Example
 
 ```console
-$ sinos-river-scraper-twitter -q "#RiodosSinos #NovoHamburgo from:ComusaNH" \
+$ sinos-river-level-twitter -q "#RiodosSinos #NovoHamburgo from:ComusaNH" \
   --key bc254ea08faf45c216fada14d64edf71 \
   --secret 99cbd9758755f8e9e55aa2be5acb75da
 

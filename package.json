@@ -1,5 +1,5 @@
 {
-  "name": "sinos-river-scraper-twitter",
+  "name": "sinos-river-level-twitter",
   "version": "0.1.0",
   "description": "Read and parse sinos river level from twitter streams",
   "main": "index.js",
@@ -17,12 +17,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulodiovani/sinos-river-scraper-twitter.git"
+    "url": "git+https://github.com/paulodiovani/sinos-river-level-twitter.git"
   },
   "bugs": {
-    "url": "https://github.com/paulodiovani/sinos-river-scraper-twitter/issues"
+    "url": "https://github.com/paulodiovani/sinos-river-level-twitter/issues"
   },
-  "homepage": "https://github.com/paulodiovani/sinos-river-scraper-twitter#readme",
+  "homepage": "https://github.com/paulodiovani/sinos-river-level-twitter#readme",
   "dependencies": {
     "coffee-script": "^1.10.0",
     "minimist": "^1.2.0",
