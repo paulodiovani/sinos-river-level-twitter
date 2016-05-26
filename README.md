@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/paulodiovani/sinos-river-level-twitter.svg?branch=master)](https://travis-ci.org/paulodiovani/sinos-river-level-twitter)
+
 # sinos-river-level-twitter
 
 Read and parse sinos river level from twitter streams.
