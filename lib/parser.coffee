@@ -1,4 +1,4 @@
-through = require('through')
+Transform = require('stream').Transform
 
 TWEET_RE = ///
     ^.*
@@ -33,10 +33,15 @@ parse_tweet = (tweet) ->
     meters: matches[4]
 
 ###
-Stream to parse tweets data
+Parser transform stream
 ###
-tr = through (data) ->
-  if parsed = parse_tweet(data)
-    @emit 'data', parsed
+class Parser extends Transform
+  constructor: ->
+    super(objectMode: true)
 
-module.exports = tr
+  _transform: (chunk, encoding, callback) ->
+    if parsed = parse_tweet(chunk)
+      @push parsed
+    callback()
+
+module.exports = Parser

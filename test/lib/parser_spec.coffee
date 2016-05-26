@@ -1,18 +1,21 @@
 Stream = require('stream')
-parser = require('../../lib/parser')
+Parser = require('../../lib/parser')
 
 sample_tweet = require('../fixtures/sample_tweet.json')
 
 describe 'sinos-river-level-twitter/parser', ->
+  before ->
+    @parser = new Parser()
+
   it 'is a stream', ->
-    expect(parser).to.be.instanceof Stream
+    expect(@parser).to.be.instanceof Stream
 
   describe 'when parsing tweets', ->
     before (done) ->
-      parser.on 'error', done
-      parser.on 'data', (@tweet) =>
+      @parser.on 'error', done
+      @parser.on 'data', (@tweet) =>
         done()
-      parser.write sample_tweet
+      @parser.write sample_tweet
 
     it 'can read date created', ->
       expect(@tweet.tweet.created_at).to.be.eql 'Wed May 25 11:18:04 +0000 2016'
