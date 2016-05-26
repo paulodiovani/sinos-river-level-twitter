@@ -1,7 +1,6 @@
 Stream  = require('stream')
 Twitter = require('twitter')
 sinos   = require('../../index')
-config  = require('../../lib/config')
 
 describe 'sinos-river-level-twitter', ->
   describe '#search', ->
@@ -22,13 +21,3 @@ describe 'sinos-river-level-twitter', ->
       sinos.search {query: 'foo-bar'}, (stream) ->
         expect(stream).to.be.instanceof Stream
         done()
-
-    it 'updates config key from options', ->
-      query = 'foo-bar'; key = 'abcd'; secret = '1234'
-      sinos.search {query, key, secret}, ->
-      expect(config).to.have.property 'TWITTER_CONSUMER_KEY', 'abcd'
-
-    it 'updates config secret from options', ->
-      query = 'foo-bar'; key = 'abcd'; secret = '1234'
-      sinos.search {query, key, secret}, ->
-      expect(config).to.have.property 'TWITTER_CONSUMER_SECRET', '1234'
