@@ -1,0 +1,20 @@
+language: node_js
+sudo: false
+cache:
+  directories:
+    - node_modules
+node_js:
+  - "0.10"
+  - "0.12"
+  - "4"
+  - "5"
+  - "6"
+env:
+  global:
+    - NODE_ENV=test
+script:
+  - npm test
+notifications:
+  email:
+    recipients:
+      - paulo@diovani.com
