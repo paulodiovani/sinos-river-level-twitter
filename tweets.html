@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Tweets</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="commands.html">
+                  commands.coffee
+                </a>
+              
+                
+                <a class="source" href="index.html">
+                  index.coffee
+                </a>
+              
+                
+                <a class="source" href="parser.html">
+                  parser.coffee
+                </a>
+              
+                
+                <a class="source" href="tweets.html">
+                  tweets.coffee
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1 id="tweets">Tweets</h1>
+<p>The <strong>Tweets module</strong> exports a <em>Readable Stream</em> that makes a
+single twitter search and emits <code>data</code> for each tweet found.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+Readable = <span class="hljs-built_in">require</span>(<span class="hljs-string">'stream'</span>).Readable
+Twitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'twitter'</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Readable stream to search tweets</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TweetsSearch</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Readable</span></span>
+  constructor: <span class="hljs-function"><span class="hljs-params">(@options)</span> -&gt;</span>
+    <span class="hljs-keyword">super</span>(objectMode: <span class="hljs-literal">true</span>)
+    @_setup()
+    @_search()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Initialize Twitter client</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _setup: <span class="hljs-function">-&gt;</span>
+    @client = <span class="hljs-keyword">new</span> Twitter
+      consumer_key: @options.key
+      consumer_secret: @options.secret
+      access_token_key: <span class="hljs-string">''</span>
+      access_token_secret: <span class="hljs-string">''</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Search tweets and emits <code>data</code> for every tweet</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _search: <span class="hljs-function">-&gt;</span>
+    query = @options.query
+    @client.get <span class="hljs-string">'search/tweets'</span>,
+      q: query
+      result_type: <span class="hljs-string">'recent'</span>
+    , <span class="hljs-function"><span class="hljs-params">(err, tweets, response)</span> =&gt;</span>
+      @emit err <span class="hljs-keyword">if</span> err?
+      <span class="hljs-keyword">for</span> tweet <span class="hljs-keyword">in</span> tweets.statuses
+        @push tweet
+      @push <span class="hljs-literal">null</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>The <code>_read</code> method is empty to prevent loops</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _read: <span class="hljs-function">-&gt;</span>
+
+exports.TweetsSearch = TweetsSearch</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
