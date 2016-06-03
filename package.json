@@ -32,6 +32,12 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "del": "^2.2.0",
+    "docco": "^0.7.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.0.0",
+    "gulp-deploy-git": "^0.5.3",
+    "gulp-filenames": "^2.1.0",
     "mocha": "^2.5.3",
     "sinon": "^1.17.4"
   }
