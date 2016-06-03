@@ -5,7 +5,7 @@ argv = require('minimist') process.argv.slice(2),
     secret: ['twitter-secret', 'twitter-consumer-secret']
     help:   ['h']
 
-sinos = require('../index')
+sinos = require('./index')
 
 ###
 Prints help information
