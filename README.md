@@ -4,6 +4,8 @@
 
 Read and parse sinos river level from twitter streams.
 
+Full documentation at [paulodiovani.github.io/sinos-river-level-twitter](http://paulodiovani.github.io/sinos-river-level-twitter/)
+
 ## Install
 
 ```console
