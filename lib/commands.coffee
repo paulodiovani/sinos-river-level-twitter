@@ -1,3 +1,8 @@
+# # Commands
+#
+# Allow simple command line usage.
+# Mostly for testing purpouses.
+
 argv = require('minimist') process.argv.slice(2),
   alias:
     search: ['s', 'q', 'query']
@@ -7,9 +12,7 @@ argv = require('minimist') process.argv.slice(2),
 
 sinos = require('./index')
 
-###
-Prints help information
-###
+# ## Prints help information
 print_help = ->
   console.log """
   usage: sinos-river-scraper-twitter [OPTIONS]
@@ -28,20 +31,19 @@ print_help = ->
   """
   process.exit 0
 
-###
-Check for required params
-###
+# ## Check for required params
 check_params = ->
   unless argv.key? and argv.secret?
     console.warn "Twitter consumer key and secret must be provided.\n"
     print_help()
 
+# ## Action option
 switch
-  # help
+  # -h, --help
   when argv.help?
     print_help()
 
-  # search
+  # -q, --query, -s, --search
   when argv.search?
     check_params()
     {key, secret, query} = argv
@@ -53,6 +55,6 @@ switch
           data.measure.time,
           data.measure.meters
 
-  # print help
+  # default (no options)
   else
     print_help()

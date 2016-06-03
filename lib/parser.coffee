@@ -1,5 +1,12 @@
+# # Parser
+#
+# The **Parse module** exports a _Transform Stream_ that can
+# be used to read tweets text and metadata and emits the parsed
+# information.
+
 Transform = require('stream').Transform
 
+# Regular Expressions to extract data from tweet text
 TWEET_RE = ///
     ^.*
     (([0-9]|0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])?)h # time    [1]
@@ -8,12 +15,10 @@ TWEET_RE = ///
     .*$
   ///
 
-###
-Parse twitter text for reading river
-  measurements.
 
-@param {Object} tweet
-###
+# Parse twitter text for reading river measurements
+#
+# - `tweet` a tweet object
 parse_tweet = (tweet) ->
   return null unless TWEET_RE.test tweet.text
   matches = TWEET_RE.exec tweet.text
@@ -32,9 +37,7 @@ parse_tweet = (tweet) ->
     time: matches[1]
     meters: matches[4]
 
-###
-Parser transform stream
-###
+# Transform stream to parse tweets
 class Parser extends Transform
   constructor: ->
     super(objectMode: true)
